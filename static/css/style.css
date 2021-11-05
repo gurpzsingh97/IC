@@ -1,24 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 html {
     height: 100%;
 }
 header{
     background-color: rgb(0, 231, 193);
 }
+
 body{
     font-family: 'lato';
 }
+
 a{
     text-decoration:none;
 }
+
 .border-black{
     border: 1px black;
 }
+
 .button{
     background-color: white;
 }
+
 .header-container {
-    padding-top: 70px;
+    padding-top: 100px;
 }
 
 .hero-image{
@@ -27,21 +33,44 @@ a{
     width: 100vw;
     background-size: cover;
 }
+
 .image-outer{
     height:70vh;
     width:100%;
     overflow:hidden;
     position: relative;
 }
+
 .hero-image-2{
     background: url("/static/media/home-appliance-image.jpg") no-repeat center center;
     height: 100%;
     width: 100vw;
     background-size: cover;
 }
+
 .hero-image-3{
     background: url("/static/media/home-sports-image.jpg") no-repeat center center;
     height: 100%;
     width: 100vw;
     background-size: cover;
 }
+
+.image-text-1{
+    text-align: right;
+    margin-right: 100px;
+}
+
+.image-text-2{
+    text-align: center;
+}
+
+.image-text-3{
+    margin-left: 100px;
+}
+
+.shop-now-button{
+    background: black;
+    color: white;
+    min-width: 160px;
+}
+
