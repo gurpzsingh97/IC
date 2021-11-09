@@ -5,11 +5,11 @@
                 Technology
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="special-link">
-                <a href="" class="dropdown-item">TVs</a>
-                <a href="" class="dropdown-item">Phones/Accesories</a>
-                <a href="" class="dropdown-item">Gaming</a>
-                <a href="" class="dropdown-item">Cameras</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Technology</a>
+                <a href="{% url 'products' %}?categories=tvs" class="dropdown-item">TVs</a>
+                <a href="{% url 'products' %}?categories=phones" class="dropdown-item">Phones/Accesories</a>
+                <a href="{% url 'products' %}?categories=gaming" class="dropdown-item">Gaming</a>
+                <a href="{% url 'products' %}?categories=cameras" class="dropdown-item">Cameras</a>
+                <a href="{% url 'products' %}?categories=tvs,phones,gaming,cameras" class="dropdown-item">All Technology</a>
             </div>
         </li>
         <li class="nav-item dropdown">
