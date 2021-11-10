@@ -36,14 +36,18 @@
                     <img src="{{ product.main_image.url }}" style="height: 100%; width: 100%; object-fit: contain"
                         class="d-block w-100" alt="...">
                 </div>
+                {% if product.image2 %}
                 <div class="carousel-item" style="height: 500px;" data-bs-interval="20000">
                     <img src="{{ product.image2.url }}" style="height: 100%; width: 100%; object-fit: contain"
                         class="d-block w-100" alt="...">
                 </div>
+                {% endif %}
+                {% if product.image3 %}
                 <div class="carousel-item" style="height: 500px;" data-bs-interval="20000">
                     <img src="{{ product.image3.url }}" style="height: 100%; width: 100%; object-fit: contain"
                         class=" d-block w-100" alt="...">
                 </div>
+                {% endif %}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev">

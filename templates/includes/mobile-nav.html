@@ -1,11 +1,35 @@
 <nav class="navbar mobile-nav fixed-top d-lg-none">
     <div class="container-fluid">
-        <a class="text-black navbar-brand"href="{% url 'home' %}"><h1 class="heading">iC</h1></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="row w-100 h-25">
+            <div class="col-4 pt-3">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="col-4 text-center pt-3">
+                <a class="text-black" href="{% url 'home' %}">
+                    <h1 class="heading">iC</h1>
+                </a>
+            </div>
+            <div class="col-4 d-flex justify-content-end">
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                        href="{% url 'view_bag' %}">
+                        <div class="text-center">
+                            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
@@ -46,12 +70,13 @@
                             <a href="{% url 'products' %}?categories=phones" class="dropdown-item">Phones/Accesories</a>
                             <a href="{% url 'products' %}?categories=gaming" class="dropdown-item">Gaming</a>
                             <a href="{% url 'products' %}?categories=cameras" class="dropdown-item">Cameras</a>
-                            <a href="{% url 'products' %}?categories=tvs,phones,gaming,cameras" class="dropdown-item">All Technology</a>
+                            <a href="{% url 'products' %}?categories=tvs,phones,gaming,cameras"
+                                class="dropdown-item">All Technology</a>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link " href="#" id="offcanvasNavbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Appliances
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
@@ -103,7 +128,8 @@
                         <input class="form-control border border-black left-rounded-2" type="text" name="q"
                             placeholder="Search our site">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-black border button border-black right-rounded-2" type="submit">
+                            <button class="form-control btn btn-black border button border-black right-rounded-2"
+                                type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -112,7 +138,7 @@
                     </div>
                 </form>
             </div>
-            </div>
         </div>
+    </div>
     </div>
 </nav>
