@@ -73,4 +73,21 @@ a{
     color: white;
     min-width: 160px;
 }
+.carousel .carousel-indicators button {
+    background-color: rgb(0, 0, 0);
+}
+.carousel .carousel-control-prev-icon{
+    background-color: rgb(0, 0, 0);
+}
+.carousel .carousel-control-next-icon{
+    background-color: rgb(0, 0, 0);
+}
 
+@media (max-width: 992px) {
+    .header-container {
+        padding-top: 66px;
+    }
+}
+.mobile-nav{
+    background-color: rgb(0, 231, 193);
+}

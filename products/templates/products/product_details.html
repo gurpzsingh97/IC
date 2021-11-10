@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col text-center">
+            <h1>{{ product.name }}</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-2">
+    <div class="row bg-light">
+        <div id="carouselExampleIndicators" class="carousel slide col-12 col-lg-6 my-auto" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <li>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </li>
+            </div>
+            
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="height: 500px;" data-bs-interval="20000">
+                    <img src="{{ product.main_image.url }}" style="height: 100%; width: 100%; object-fit: contain"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" style="height: 500px;" data-bs-interval="20000">
+                    <img src="{{ product.image2.url }}" style="height: 100%; width: 100%; object-fit: contain"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" style="height: 500px;" data-bs-interval="20000">
+                    <img src="{{ product.image3.url }}" style="height: 100%; width: 100%; object-fit: contain"
+                        class=" d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="col-12 col-lg-6 my-1 px-4">
+            <h2>About Item</h2>
+            <p>{{ product.description }}</p>
+            <p>£{{ product.price }}</p>
+            <small>{{ product.rating }}</small>
+        </div>
+    </div>
+</div>
+{% endblock %}
