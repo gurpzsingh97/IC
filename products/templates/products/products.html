@@ -46,11 +46,15 @@
     <div class="row">
         {% for product in products %}
         <div class="col-lg-3 col-md-6 col-12 my-3">
-            <div class="card border-bottom h-100 border-0" style="height: 510px;">
-                <img class="card-img-top mt-2" src="{{ product.main_image.url }}" alt="Card image cap">
+            <div class="card border-bottom border-0" style="height:550px;">
+                <div style="height:300px;">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="card-img-top mt-2" style="height: 100%; width: 100%; object-fit: contain" src="{{ product.main_image.url }}" alt="Card image cap">
+                    </a>                    
+                </div>
                 <div class="card-body mt-4 py-0">
                     <a href="{% url 'product_detail' product.id %}">
-                        <p class="card-text mb-0">{{ product.name }}</p>
+                        <p class="card-text mb-0 text-black">{{ product.name }}</p>
                     </a>
                 </div>
                 <div class="card-footer">

@@ -5,7 +5,7 @@
 <div class="container header-container">
     <div class="row">
         <div class="col">
-
+            
         </div>
     </div>
 </div>
@@ -32,21 +32,21 @@
             </div>
             
             <div class="carousel-inner">
-                <div class="carousel-item active" style="height: 500px;" data-bs-interval="20000">
+                <div class="carousel-item active" style="height: 500px;" data-bs-interval="7000">
                     <img src="{{ product.main_image.url }}" style="height: 100%; width: 100%; object-fit: contain"
                         class="d-block w-100" alt="...">
                 </div>
                 {% if product.image2 %}
-                <div class="carousel-item" style="height: 500px;" data-bs-interval="20000">
-                    <img src="{{ product.image2.url }}" style="height: 100%; width: 100%; object-fit: contain"
-                        class="d-block w-100" alt="...">
-                </div>
+                    <div class="carousel-item" style="height: 500px;" data-bs-interval="7000">
+                        <img src="{{ product.image2.url }}" style="height: 100%; width: 100%; object-fit: contain"
+                            class="d-block w-100" alt="...">
+                    </div>
                 {% endif %}
                 {% if product.image3 %}
-                <div class="carousel-item" style="height: 500px;" data-bs-interval="20000">
-                    <img src="{{ product.image3.url }}" style="height: 100%; width: 100%; object-fit: contain"
-                        class=" d-block w-100" alt="...">
-                </div>
+                    <div class="carousel-item" style="height: 500px;" data-bs-interval="7000">
+                        <img src="{{ product.image3.url }}" style="height: 100%; width: 100%; object-fit: contain"
+                            class=" d-block w-100" alt="...">
+                    </div>
                 {% endif %}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -62,9 +62,35 @@
         </div>
         <div class="col-12 col-lg-6 my-1 px-4">
             <h2>About Item</h2>
-            <p>{{ product.description }}</p>
+            <div class="h-25 overflow-auto my-4 border-bottom">
+                <p>{{ product.description }}</p>
+                <small>Rating:{{ product.rating }}</small>
+            </div>
             <p>£{{ product.price }}</p>
-            <small>{{ product.rating }}</small>
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-12">
+                        <p class="mt-2 mb-0">Quantity:</p>
+                        <div class="form-group w-25">
+                            <div class="input-group">
+                                <input type="text" class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                                    max="99" data-item-id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <a href="{% url 'products' %}">
+                            <span class="buttons-invt">Back</span>
+                        </a>
+                        <input class="shop-now-button" value="Add to bag"type="submit">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+
+
+            </form>
         </div>
     </div>
 </div>
