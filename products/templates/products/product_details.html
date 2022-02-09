@@ -71,15 +71,41 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col-12">
+                        {% if product.has_sizes %}
+                            <div class="col-12">
+                                <p><strong>Size:</strong></p>
+                                <select name="product_size" id="id_product_size" class="form-control rounded-0 w-25">
+                                    <option value="16gb">16GB</option>
+                                    <option value="32gb">32GB</option>
+                                    <option value="64gb">64GB</option>
+                                    <option value="128gb" selected>128GB</option>
+                                </select>
+                            </div>
+                        {% endif %}
                         <p class="mt-2 mb-0">Quantity:</p>
                         <div class="form-group w-25">
                             <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="decrement-qty btn button rounded-0" data-item-id="{{ product.id }}"
+                                        id="decrement-qty_{{ product.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-minus"></i>
+                                        </span>
+                                    </button>
+                                </div>
                                 <input type="number" class="form-control qty_input" type="number" name="quantity" value="1" min="1"
                                     max="99" data-item-id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn button" data-item-id="{{ product.id }}"
+                                        id="increment-qty_{{ product.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-12 mt-3">
                         <a href="{% url 'products' %}">
                             <span class="buttons-invt">Back</span>
@@ -88,10 +114,12 @@
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
-
-
             </form>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
