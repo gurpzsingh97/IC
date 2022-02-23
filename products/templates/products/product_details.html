@@ -75,10 +75,10 @@
                             <div class="col-12">
                                 <p><strong>Size:</strong></p>
                                 <select name="product_size" id="id_product_size" class="form-control rounded-0 w-25">
-                                    <option value="16gb">16GB</option>
+                                    <option value="16gb" selected>16GB</option>
                                     <option value="32gb">32GB</option>
                                     <option value="64gb">64GB</option>
-                                    <option value="128gb" selected>128GB</option>
+                                    <option value="128gb">128GB</option>
                                 </select>
                             </div>
                         {% endif %}
@@ -93,8 +93,10 @@
                                         </span>
                                     </button>
                                 </div>
-                                <input type="number" class="form-control qty_input" type="number" name="quantity" value="1" min="1"
-                                    max="99" data-item-id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <input class="form-control qty_input" type="number"
+                                            name="quantity" value="1" min="1" max="99"
+                                            data-item_id="{{ product.id }}"
+                                            id="id_qty_{{ product.id }}">
                                 <div class="input-group-append">
                                     <button class="increment-qty btn button" data-item-id="{{ product.id }}"
                                         id="increment-qty_{{ product.id }}">
