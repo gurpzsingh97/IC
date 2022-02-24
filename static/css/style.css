@@ -149,7 +149,11 @@ a{
     border-bottom-color: #212529 !important;
 }
 
-
+.bag-notification-wrapper{
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 
 @media (max-width: 992px) {
