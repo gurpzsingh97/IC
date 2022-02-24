@@ -19,14 +19,17 @@ a{
     border: 1px black;
 }
 
-.button{
+.button,
+.button-opp:hover{
     background: black;
     color: white;
     border:grey 1px solid;
 }
-.button:hover{
+.button:hover,
+.button-opp{
     background: white;
     color: black;
+    border: black 1px solid;
 }
 
 .header-container {
